@@ -1,0 +1,1 @@
+Building a modern android file manager application with ability to access network shares.  This application needs to be able to access local files and local network shares that are located on a NAS; must be secure and easy to use
