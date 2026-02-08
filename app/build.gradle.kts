@@ -96,8 +96,7 @@ dependencies {
     implementation(libs.androidx.security.crypto)
 
     // SMB/CIFS
-    // TODO: Fix JCIFS-NG dependency resolution
-    // implementation(libs.jcifs.ng)
+    implementation(libs.jcifs.ng)
 
     // Image Loading
     implementation(libs.coil.compose)

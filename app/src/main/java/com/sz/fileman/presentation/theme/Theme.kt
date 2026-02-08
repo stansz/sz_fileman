@@ -17,13 +17,13 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = PrimaryLight,
-    secondary = SecondaryLight,
-    tertiary = Secondary,
-    background = Color(0xFF1C1B1F),
-    surface = Color(0xFF1C1B1F),
+    primary = PrimaryDark,
+    secondary = Secondary,
+    tertiary = SecondaryLight,
+    background = Color(0xFF2B2930),
+    surface = Color(0xFF2B2930),
     error = Error,
-    onPrimary = Color(0xFF000000),
+    onPrimary = Color(0xFFFFFFFF),
     onSecondary = Color(0xFF000000),
     onTertiary = Color(0xFF000000),
     onBackground = Color(0xFFE6E1E5),
@@ -66,8 +66,8 @@ fun FileManTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            window.statusBarColor = colorScheme.surface.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
 

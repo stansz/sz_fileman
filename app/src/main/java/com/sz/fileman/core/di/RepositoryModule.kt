@@ -1,7 +1,10 @@
 package com.sz.fileman.core.di
 
+import com.sz.fileman.core.security.storage.SecureStorage
 import com.sz.fileman.data.local.LocalFileRepository
+import com.sz.fileman.data.nas.NasFileRepository
 import com.sz.fileman.domain.repository.FileRepository
+import com.sz.fileman.domain.repository.NasRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,13 +27,14 @@ object RepositoryModule {
         return LocalFileRepository()
     }
     
-    // TODO: Provide NasRepository when implemented
-    // @Provides
-    // @Singleton
-    // fun provideNasRepository(
-    //     secureStorage: SecureStorage,
-    //     cryptoUtils: CryptoUtils
-    // ): NasRepository {
-    //     return NasFileRepository(secureStorage, cryptoUtils)
-    // }
+    /**
+     * Provide the NAS repository implementation.
+     */
+    @Provides
+    @Singleton
+    fun provideNasRepository(
+        secureStorage: SecureStorage
+    ): NasRepository {
+        return NasFileRepository(secureStorage = secureStorage)
+    }
 }
